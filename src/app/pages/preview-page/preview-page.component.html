@@ -1,0 +1,63 @@
+<form>
+  <input
+    type="file"
+    (change)="onSelectFile($event)"
+    multiple
+    accept="image/png image/jpeg image/gif"
+  />
+  <button class="btn" type="button" id="submit" (click)="submit()">Submit</button>
+</form>
+
+<div class="preview" *ngIf="imageDetails && imageDetails.length">
+  <div class="large-preview">
+    <img [src]="imageDetails[currentItem].image" *ngIf="currentItem !== null" />
+  </div>
+
+  <div class="preview-container">
+    <div
+      class="img-preview"
+      *ngFor="let imageDetail of imageDetails; index as i"
+    >
+      <img
+        [src]="imageDetail.image"
+        [ngClass]="{ active: i === currentItem }"
+        (click)="currentItem = i"
+      />
+      <button (click)="replaceImage(hiddenInput)" class="replace-btn">
+        <i class="fas fa-edit"></i>
+      </button>
+      <button (click)="deleteImage(i)" class="delete-btn">
+        <i class="fas fa-trash"></i>
+      </button>
+      <input
+        #hiddenInput
+        (change)="onReplaceFile($event, i)"
+        style="width: 0px; height: 0px; overflow: hidden; position: absolute"
+        type="file"
+        accept="image/png image/jpeg image/gif"
+      />
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Extension</th>
+        <th>Valid</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let imageDetail of imageDetails; index as i">
+        <td>{{ i }}</td>
+        <td>{{ imageDetail.name }}</td>
+        <td>{{ imageDetail.size }}</td>
+        <td>{{ imageDetail.type }}</td>
+        <td>{{ imageDetail.isValid }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

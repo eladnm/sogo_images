@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import './assets/normalize.css';
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    padding-top: 1rem;
+    padding-bottom: .5rem;
+}
+
+.form-group input {
+    padding: .5em;
+    border-radius: 5px;
+}
+
+.btn {
+    margin: 1rem 0;
+    padding: .5rem 2rem;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #1976D2;
+    color: #fff;
+}
+
+.btn[disabled] {
+    cursor: pointer;
+    background-color: #e4e4e4;
+}
