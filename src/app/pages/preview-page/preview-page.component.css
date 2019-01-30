@@ -64,6 +64,19 @@
 .preview-container img.active {
   border: 5px solid #fff;
 }
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 8px 30px;
+    cursor: pointer;
+    color: #00FF00;
+}
+#submit {
+    margin-left: 10%;
+}
 
 table,
 th,

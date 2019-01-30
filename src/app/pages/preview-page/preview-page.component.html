@@ -1,13 +1,11 @@
 <form>
-  <input
-    type="file"
-    (change)="onSelectFile($event)"
-    multiple
-    accept="image/png image/jpeg image/gif"
-  />
-  <button class="btn" type="button" id="submit" (click)="submit()">Submit</button>
+  <h3>Choose Images To Upload</h3>
+  <label for="file-upload" class="custom-file-upload">
+    <i class="fa fa-plus"></i></label>
+  <input id="file-upload"
+    type="file"(change)="onSelectFile($event)" multiple accept="image/png image/jpeg image/gif"/> 
+  <button  class="btn" type="button" id="submit" (click)="submit()">Submit</button>
 </form>
-
 <div class="preview" *ngIf="imageDetails && imageDetails.length">
   <div class="large-preview">
     <img [src]="imageDetails[currentItem].image" *ngIf="currentItem !== null" />
@@ -19,10 +17,7 @@
       *ngFor="let imageDetail of imageDetails; index as i"
     >
       <img
-        [src]="imageDetail.image"
-        [ngClass]="{ active: i === currentItem }"
-        (click)="currentItem = i"
-      />
+        [src]="imageDetail.image" [ngClass]="{ active: i === currentItem }" (click)="currentItem = i"/>
       <button (click)="replaceImage(hiddenInput)" class="replace-btn">
         <i class="fas fa-edit"></i>
       </button>
