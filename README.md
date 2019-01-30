@@ -1,6 +1,7 @@
 # sogo_images
 
 Installation
-
-- Run ng build with NodeJS
-- Move folders and files inside dust folder to server like XAMPP to use with PHP server
+using NodeJS
+- npm install --save-dev @angular-devkit/build-angular
+- Run ng build
+- Copy folders and files inside that are inside dust folder to a server like XAMPP to use with PHP server
